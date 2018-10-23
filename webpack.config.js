@@ -31,11 +31,23 @@ module.exports = {
                 })
             },
             {
+                test:/\.scss$/,
+                // sass文件分离
+                use: ExtractTextPlugin.extract({
+                    use:[{
+                    loader:'css-loader'
+                    },{
+                    loader:'sass-loader'
+                    }],
+                    fallback:'style-loader'
+                    })
+            },
+            {
                 test: /\.(png|svg|jpg|gif)$/,
                 use:[{
                         loader:'file-loader',
                         options:{
-                            name:"[name].[ext]",
+                            name:"[name].[ext]", // ext: 后缀
                             outputPath: './img/' // 
                         }
                     }

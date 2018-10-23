@@ -1,5 +1,6 @@
 
 import './css/index.css'
+import './css/index.scss'
 import './assest/zz.jpg'
 import {sayHello} from './sayHello'
 function index () {
