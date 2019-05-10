@@ -1,10 +1,10 @@
 const path = require('path')
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // 自动生成html
-const CleanWebpackPlugin = require('clean-webpack-plugin'); // 清除
+const CleanWebpackPlugin = require('clean-webpack-plugin'); // 清除插件
 const ExtractTextPlugin = require("extract-text-webpack-plugin");  //css 
 module.exports = {
-    mode: 'development',
+    // mode: 'development',
     entry: {
         main: './src/index.js'
     },
@@ -64,8 +64,31 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new ExtractTextPlugin("./css/[name]-[hash].css"), // css 打包成文件
         new webpack.DefinePlugin({
-            name: 'joel',
-            time: '20181022'
+            name: 'Joel',
+            time: new Date().toLocaleString()
         })
-    ]
+    ],
+    optimization: {
+        splitChunks: {
+          chunks: 'async',
+          minSize: 300,
+          maxSize: 0,
+          minChunks: 1,
+          maxAsyncRequests: 5,
+          maxInitialRequests: 3,
+          automaticNameDelimiter: '~',
+          name: true,
+          cacheGroups: {
+            vendors: {
+              test: /[\\/]node_modules[\\/]/,
+              priority: -10
+            },
+            default: {
+              minChunks: 1,
+              priority: -20,
+              reuseExistingChunk: true
+            }
+          }
+        }
+      }
 }
