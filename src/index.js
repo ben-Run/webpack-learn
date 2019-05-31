@@ -1,8 +1,9 @@
 
 import './css/index.css'
 import './css/index.scss'
-import './assest/zz.jpg'
+import './assest/img/kuli.jpg' 
 import {sayHello} from './sayHello'
+
 let a = 1;
 console.log(a);
 function index () {

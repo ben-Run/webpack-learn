@@ -3,6 +3,13 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // 自动生成html
 const CleanWebpackPlugin = require('clean-webpack-plugin'); // 清除插件
 const ExtractTextPlugin = require("extract-text-webpack-plugin");  //css 
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
+// path
+function resolve (dir) {
+  return path.join(__dirname, dir)
+}
+// module
 module.exports = {
     // mode: 'development',
     entry: {
@@ -10,8 +17,16 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name]-[hash].bundle.js' // 多入口时是需要不同的名称 所以这个name 是一个占位符
+        filename: '[name]-[hash].bundle.js', // 多入口时是需要不同的名称 所以这个name 是一个占位符
+        publicPath:'./'
     },
+    resolve: {
+        extensions: ['.js', '.vue', '.json'],
+        alias: {
+          '@': resolve('src'),
+          'static': resolve('static')
+        }
+     },
     // local server
     devServer:{
         contentBase:'dist',
@@ -26,8 +41,7 @@ module.exports = {
                 test: /\.css$/,
                 use: ExtractTextPlugin.extract({ 
                     fallback: "style-loader", 
-                    use: "css-loader",
-                    publicPath:'../' //解决css背景图的路径问题
+                    use: "css-loader"
                 })
             },
             {
@@ -47,8 +61,8 @@ module.exports = {
                 use:[{
                         loader:'file-loader',
                         options:{
-                            name:"[name].[ext]", // ext: 后缀
-                            outputPath: './img/' // 
+                            name:"[name]-[hash].[ext]", // ext: 后缀
+                            outputPath: './assest/img'
                         }
                     }
                 ]
@@ -61,8 +75,17 @@ module.exports = {
             title: 'webpack demo',
             template: './src/index.html', //指定要打包的html路径和文件名
         }),
+        // copy custom static assets
+        new CopyWebpackPlugin([
+          {
+            from: path.resolve(__dirname, './src/static/'),
+            to: path.resolve(__dirname, './dist/static/'),
+            force: true,
+            ignore: ['.*']
+          }
+        ]),
         new webpack.HotModuleReplacementPlugin(),
-        new ExtractTextPlugin("./css/[name]-[hash].css"), // css 打包成文件
+        new ExtractTextPlugin("css/[name]-[hash].css"), // css 打包成文件
         new webpack.DefinePlugin({
             name: 'Joel',
             time: new Date().toLocaleString()

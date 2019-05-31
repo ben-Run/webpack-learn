@@ -1,9 +1,11 @@
+@import './mixin.scss';
 $body-color:red;
 $h-color: blue;
+
 .content-box {
     border:1px solid #ccc;
     h3 {
-        color:$h-color
+        color:$h-color;
+        @include border-color();
     }
 }
-
