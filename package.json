@@ -1,0 +1,26 @@
+{
+  "name": "webpack-learn",
+  "version": "1.0.0",
+  "description": "\u001b[D\u001b[不需要脚手架",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "",
+    "build:dev": "webpack --mode development",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ben-Run/webpack-learn.git"
+  },
+  "author": "longbensong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ben-Run/webpack-learn/issues"
+  },
+  "homepage": "https://github.com/ben-Run/webpack-learn#readme",
+  "devDependencies": {
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.8"
+  }
+}

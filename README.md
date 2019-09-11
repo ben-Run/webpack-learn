@@ -16,4 +16,12 @@ a webpack  example
  1、loader、plugin、path、publicPath、outPut、entry 等等
  2、强大的plugin 生态、支持不同文件的处理，让webpack 强大无比
  3、最后感谢nodeJs ，因为node 所以前端才有那么好的工具，node 扩大了前端的边界能力。
- ***
+
+
+ ************************************************
+### 初始化
+```
+npm init
+npm install webpack webpack-cli --save-dev
+```
+
