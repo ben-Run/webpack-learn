@@ -1,7 +1,0 @@
-
-$boder-main-color:#ccc;
-
-@mixin border-color($color: $boder-main-color) {
-  border: 1px solid;
-  border-color: $color;
-}
