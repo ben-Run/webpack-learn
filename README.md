@@ -1,3 +1,29 @@
+### 初始化
+```
+npm init
+npm install webpack webpack-cli --save-dev
+```
+### 搭建css
+1. 增加 normalize.css
+```
+npm install -D normalize.css
+```
+2. css-load style-load
+```
+npm i -D css-loader style-loader
+```
+3. 增加 HtmlWebpackPlugin
+```
+npm i -D html-webpack-plugin
+```
+4. 增加 clean-webpack-plugin
+```
+npm i -D clean-webpack-plugin
+```
+
+
+### 以下为之前整理
+----------------------------------------------
 # webpack-learn
 a webpack  example
 # 20181022 基本机构
@@ -18,10 +44,6 @@ a webpack  example
  3、最后感谢nodeJs ，因为node 所以前端才有那么好的工具，node 扩大了前端的边界能力。
 
 
- ************************************************
-### 初始化
-```
-npm init
-npm install webpack webpack-cli --save-dev
-```
+
+
 
