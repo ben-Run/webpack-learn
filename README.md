@@ -20,7 +20,14 @@ npm i -D html-webpack-plugin
 ```
 npm i -D clean-webpack-plugin
 ```
-
+5. 增加 scss-loader 
+```
+npm i -D  node-sass sass-loader
+```
+6. 增加mini-css-extract-plugin 提前css
+```
+npm i -D  mini-css-extract-plugin
+```
 
 ### 以下为之前整理
 ----------------------------------------------

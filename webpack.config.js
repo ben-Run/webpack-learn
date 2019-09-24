@@ -2,6 +2,7 @@
 const path = require('path')
 const htmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } =  require('clean-webpack-plugin')
+const miniCssExtractPlugin = require('mini-css-extract-plugin')
 
 // path
 function resolve (dir) {
@@ -21,11 +22,14 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.(sa|sc|c)ss$/,
         use: [
-          { loader: 'style-loader' },
-          { loader: 'css-loader' }
-        ]
+          {
+            loader: miniCssExtractPlugin.loader,
+          },
+          'css-loader',
+          'sass-loader',
+        ], // 从右往左开始处理
       }
     ]
   },
@@ -34,6 +38,9 @@ module.exports = {
     new htmlWebpackPlugin({
       title: '脱离脚手架',
       template: './index.html'
+    }),
+    new miniCssExtractPlugin({
+      filename: '[name].[hash].css'
     })
   ]
 }
