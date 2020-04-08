@@ -5,9 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "",
-    "build:dev": "webpack --mode development",
-    "build": "webpack --mode production"
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --open --config ./build/webpack.dev.conf",
+    "build": "cross-env NODE_ENV=production webpack  --progress --config ./build/webpack.prod.conf --mode production"
   },
   "repository": {
     "type": "git",
@@ -20,17 +19,38 @@
   },
   "homepage": "https://github.com/ben-Run/webpack-learn#readme",
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-transform-arrow-functions": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
+    "cross-env": "^7.0.2",
     "css-loader": "^3.2.0",
+    "file-loader": "^6.0.0",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.12.0",
+    "postcss-import": "^12.0.1",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.7.0",
+    "postcss-url": "^8.0.0",
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.0",
+    "vue-loader": "^15.9.1",
+    "vue-template-compiler": "^2.6.11",
     "webpack": "^4.39.3",
-    "webpack-cli": "^3.3.8"
+    "webpack-cli": "^3.3.8",
+    "webpack-dev-server": "^3.10.3",
+    "webpack-merge": "^4.2.2"
   },
   "dependencies": {
-    "normalize.css": "^8.0.1"
+    "@babel/polyfill": "^7.8.7",
+    "core-js": "^2.6.11",
+    "normalize.css": "^8.0.1",
+    "stats-webpack-plugin": "^0.7.0",
+    "vue": "^2.6.11"
   }
 }

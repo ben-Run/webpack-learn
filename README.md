@@ -1,54 +1,21 @@
-### 初始化
-```
-npm init
-npm install webpack webpack-cli --save-dev
-```
-### 搭建css
-1. 增加 normalize.css
-```
-npm install -D normalize.css
-```
-2. css-load style-load
-```
-npm i -D css-loader style-loader
-```
-3. 增加 HtmlWebpackPlugin
-```
-npm i -D html-webpack-plugin
-```
-4. 增加 clean-webpack-plugin
-```
-npm i -D clean-webpack-plugin
-```
-5. 增加 scss-loader 
-```
-npm i -D  node-sass sass-loader
-```
-6. 增加mini-css-extract-plugin 提前css
-```
-npm i -D  mini-css-extract-plugin
-```
+### 目标vue基本脚手架
+大致需要以下功能
+ * js的处理：转换 ES6 代码，解决浏览器兼容问题
+ * css的处理：编译css，自动添加前缀，抽取css到独立文件
+ * vue文件的处理
+ * html的处理：复制并压缩html文件
+ * dist的清理：打包前清理源目录文件
+ * server的启用：development 模式下启动服务器并实时刷新
 
-### 以下为之前整理
-----------------------------------------------
-# webpack-learn
-a webpack  example
-# 20181022 基本机构
-  基本打包 css img 热更新 dev.server（本地服务）
-# 20181023 增加打包scss
-  使用extract-text-webpack-plugin 插件分离scss 到css
-# 20190325 更新webpack
-  v4.29.6
-# 20190531 add static assest
-  更新loader、增加静态资源打包的拷贝
-# (function(){}) () IIFE
+### (function(){}) () IIFE
  1、从入口开始，静态分析出依懒图
  2、通过各种load 对文件转换成为js
- 3、打包文件生成，其实去掉注释我们就会发现其实就是一个IIFE 函数，key 作为属性，function 作为值（一个模块）   传进去
- # 不管webpack 版本如何变，核心的概念始终没有变
+ 3、打包文件生成，其实去掉注释我们就会发现其实就是一个IIFE 函数，key 作为属性，function 作为值（一个模块）传进去
+ 
+### 版本变化，核心的概念没有变
  1、loader、plugin、path、publicPath、outPut、entry 等等
- 2、强大的plugin 生态、支持不同文件的处理，让webpack 强大无比
- 3、最后感谢nodeJs ，因为node 所以前端才有那么好的工具，node 扩大了前端的边界能力。
+ 2、丰富得plugin 生态、支持不同文件的处理，让webpack 对模块的十分友好
+ 3、不管是postcss 还是babel等插件都是node模块
 
 
 
