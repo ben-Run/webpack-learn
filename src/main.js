@@ -3,7 +3,7 @@ import '@/style/index.scss'
 import Vue from 'vue'
 import { Person } from '@/view/index'
 import App from '@/App.vue'
-
+import router from '@/router'
 
 const p = new Person()
 p.name = 'joel'
@@ -19,6 +19,7 @@ Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  router,
   components: { App },
   template: '<App/>'
 })

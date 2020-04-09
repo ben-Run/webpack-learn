@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h3>this is vue</h3>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -12,11 +12,14 @@ export default {
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,segoe ui,Roboto,
+    Helvetica,Arial,
+    sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  padding-top: 60px;
+  height: 100%;
 }
 </style>
